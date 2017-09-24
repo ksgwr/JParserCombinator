@@ -1,9 +1,7 @@
 package jp.ksgwr.parser.tsv;
 
 import static org.junit.Assert.*;
-
-import java.io.StringReader;
-
+import jp.ksgwr.io.MultiMarkableStringReader;
 import jp.ksgwr.parser.Parser;
 
 import org.junit.Test;
@@ -14,7 +12,7 @@ public class TSVTextDataParserTest {
 	public void parseTest() throws Exception {
 		Parser<Character> parser = new TSVTextDataParser();
 
-		StringReader text = new StringReader("a\tb");
+		MultiMarkableStringReader text = new MultiMarkableStringReader("a\tb");
 		Character actual;
 
 		actual = parser.parse(text);

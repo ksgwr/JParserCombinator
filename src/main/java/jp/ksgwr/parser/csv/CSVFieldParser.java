@@ -1,7 +1,8 @@
 package jp.ksgwr.parser.csv;
 
-import java.io.Reader;
+import java.io.IOException;
 
+import jp.ksgwr.io.MultiMarkableReader;
 import jp.ksgwr.parser.Parser;
 
 /**
@@ -18,7 +19,7 @@ public class CSVFieldParser implements Parser<String> {
 	private static final CSVNonEscapedParser NON_ESCAPED = new CSVNonEscapedParser();
 
 	@Override
-	public String parse(Reader in) throws Exception {
+	public String parse(MultiMarkableReader in) throws IOException {
 		return ESCAPED.or(NON_ESCAPED).parse(in);
 	}
 

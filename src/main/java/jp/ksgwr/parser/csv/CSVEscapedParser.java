@@ -1,7 +1,8 @@
 package jp.ksgwr.parser.csv;
 
-import java.io.Reader;
+import java.io.IOException;
 
+import jp.ksgwr.io.MultiMarkableReader;
 import jp.ksgwr.parser.Parser;
 
 /**
@@ -22,7 +23,7 @@ public class CSVEscapedParser implements Parser<String> {
 	}
 
 	@Override
-	public String parse(Reader in) throws Exception {
+	public String parse(MultiMarkableReader in) throws IOException {
 		int c;
 		String ret = null;
 		in.mark(1);

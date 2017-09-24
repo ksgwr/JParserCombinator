@@ -1,7 +1,8 @@
 package jp.ksgwr.parser.tsv;
 
-import java.io.Reader;
+import java.io.IOException;
 
+import jp.ksgwr.io.MultiMarkableReader;
 import jp.ksgwr.parser.Parser;
 import jp.ksgwr.parser.flatten.TextFieldParser;
 
@@ -23,7 +24,7 @@ public class TSVFieldParser implements Parser<String> {
 	}
 
 	@Override
-	public String parse(Reader in) throws Exception {
+	public String parse(MultiMarkableReader in) throws IOException {
 		return FIELD_PARSER.parse(in);
 	}
 

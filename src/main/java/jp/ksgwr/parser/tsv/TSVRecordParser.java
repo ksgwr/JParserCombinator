@@ -1,8 +1,9 @@
 package jp.ksgwr.parser.tsv;
 
-import java.io.Reader;
+import java.io.IOException;
 import java.util.List;
 
+import jp.ksgwr.io.MultiMarkableReader;
 import jp.ksgwr.parser.Parser;
 import jp.ksgwr.parser.flatten.DelimitedRecordParser;
 
@@ -23,7 +24,7 @@ public class TSVRecordParser implements Parser<List<String>> {
 	}
 
 	@Override
-	public List<String> parse(Reader in) throws Exception {
+	public List<String> parse(MultiMarkableReader in) throws IOException {
 		return RECORD_PARSER.parse(in);
 	}
 

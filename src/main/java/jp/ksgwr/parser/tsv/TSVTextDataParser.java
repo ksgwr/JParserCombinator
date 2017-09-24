@@ -1,7 +1,8 @@
 package jp.ksgwr.parser.tsv;
 
-import java.io.Reader;
+import java.io.IOException;
 
+import jp.ksgwr.io.MultiMarkableReader;
 import jp.ksgwr.parser.Parser;
 
 /**
@@ -19,7 +20,7 @@ public class TSVTextDataParser implements Parser<Character> {
 	}
 
 	@Override
-	public Character parse(Reader in) throws Exception {
+	public Character parse(MultiMarkableReader in) throws IOException {
 		int c;
 		in.mark(1);
 		c = in.read();

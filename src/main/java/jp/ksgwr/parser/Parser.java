@@ -1,7 +1,10 @@
 package jp.ksgwr.parser;
 import java.io.IOException;
 import java.io.Reader;
-import java.io.StringReader;
+
+import jp.ksgwr.io.MultiMarkableBufferedReader;
+import jp.ksgwr.io.MultiMarkableReader;
+import jp.ksgwr.io.MultiMarkableStringReader;
 
 /**
  * Parser Interface
@@ -14,22 +17,30 @@ import java.io.StringReader;
 public interface Parser<T> {
 
 	/**
-	 * parse string
-	 * @param s string
-	 * @return parse result
-	 * @throws Exception parser exception
-	 */
-    default T parse(String s) throws Exception {
-    	return parse(new StringReader(s));
-    }
-
-    /**
      * parse stream
      * @param in input stream
      * @return parse result
      * @throws Exception parser exception
      */
-    T parse(Reader in) throws Exception;
+    T parse(MultiMarkableReader in) throws IOException;
+
+	/**
+	 * parse string
+	 * @param s string
+	 * @return parse result
+	 * @throws ParserException parser exception
+	 */
+    default T parse(String s) throws IOException {
+    	return parse(new MultiMarkableStringReader(s));
+    }
+
+    default T parse(Reader in) throws IOException {
+    	return parse(new MultiMarkableBufferedReader(in));
+    }
+
+    default T parse(Reader in, int bufferSize) throws IOException {
+    	return parse(new MultiMarkableBufferedReader(in, bufferSize));
+    }
 
     /**
      * parse combinator

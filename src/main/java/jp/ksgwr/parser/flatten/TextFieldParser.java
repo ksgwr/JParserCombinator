@@ -1,7 +1,8 @@
 package jp.ksgwr.parser.flatten;
 
-import java.io.Reader;
+import java.io.IOException;
 
+import jp.ksgwr.io.MultiMarkableReader;
 import jp.ksgwr.parser.Parser;
 
 /**
@@ -23,7 +24,7 @@ public class TextFieldParser implements Parser<String> {
 	}
 
 	@Override
-	public String parse(Reader in) throws Exception {
+	public String parse(MultiMarkableReader in) throws IOException {
 		StringBuilder sb = new StringBuilder();
 		while (this.peek(in) != -1) {
 			Character tmpc = charParser.parse(in);

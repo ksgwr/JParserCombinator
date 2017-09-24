@@ -1,9 +1,10 @@
 package jp.ksgwr.parser;
 
-import java.io.Reader;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
+import jp.ksgwr.io.MultiMarkableReader;
 import jp.ksgwr.parser.tsv.TSVRecordParser;
 
 /**
@@ -22,7 +23,7 @@ public class TSVParser implements Parser<Iterator<List<String>>>{
 	private static final TSVRecordParser RECORD = new TSVRecordParser();
 
 	@Override
-	public Iterator<List<String>> parse(Reader in) throws Exception {
+	public Iterator<List<String>> parse(MultiMarkableReader in) throws IOException {
 		return new LineIterator<>(in, RECORD);
 	}
 

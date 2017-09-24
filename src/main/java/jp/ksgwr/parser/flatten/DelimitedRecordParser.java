@@ -1,9 +1,10 @@
 package jp.ksgwr.parser.flatten;
 
-import java.io.Reader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.ksgwr.io.MultiMarkableReader;
 import jp.ksgwr.parser.Parser;
 
 /**
@@ -30,7 +31,7 @@ public class DelimitedRecordParser implements Parser<List<String>> {
 	}
 
 	@Override
-	public List<String> parse(Reader in) throws Exception {
+	public List<String> parse(MultiMarkableReader in) throws IOException {
 		List<String> fields = new ArrayList<String>();
 		int c;
 		fields.add(fieldParser.parse(in));

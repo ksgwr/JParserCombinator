@@ -1,8 +1,9 @@
 package jp.ksgwr.parser;
 
 import java.io.IOException;
-import java.io.Reader;
 import java.util.Iterator;
+
+import jp.ksgwr.io.MultiMarkableReader;
 
 /**
  * Line Iterator for Input Stream
@@ -14,7 +15,7 @@ import java.util.Iterator;
 public class LineIterator<T> implements Iterator<T> {
 
 	/** input stream */
-	private Reader in;
+	private MultiMarkableReader in;
 
 	/** line parser */
 	private Parser<T> parser;
@@ -24,7 +25,7 @@ public class LineIterator<T> implements Iterator<T> {
 	 * @param in input stream
 	 * @param parser line parser
 	 */
-	public LineIterator(Reader in, Parser<T> parser) {
+	public LineIterator(MultiMarkableReader in, Parser<T> parser) {
 		this.in = in;
 		this.parser = parser;
 	}

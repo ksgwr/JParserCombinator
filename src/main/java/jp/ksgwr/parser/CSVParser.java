@@ -1,9 +1,10 @@
 package jp.ksgwr.parser;
 
-import java.io.Reader;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
+import jp.ksgwr.io.MultiMarkableReader;
 import jp.ksgwr.parser.csv.CSVRecordParser;
 
 /**
@@ -25,7 +26,7 @@ public class CSVParser implements Parser<Iterator<List<String>>> {
 	private static final CSVRecordParser RECORD = new CSVRecordParser();
 
 	@Override
-	public Iterator<List<String>> parse(Reader in) throws Exception {
+	public Iterator<List<String>> parse(MultiMarkableReader in) throws IOException {
 		return new LineIterator<>(in, RECORD);
 	}
 }
