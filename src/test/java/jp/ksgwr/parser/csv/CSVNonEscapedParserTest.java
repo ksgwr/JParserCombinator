@@ -25,5 +25,4 @@ public class CSVNonEscapedParserTest {
 		actual = parser.parse(text);
 		assertEquals("", actual);
 	}
-
 }

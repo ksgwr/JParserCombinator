@@ -15,20 +15,23 @@ public class CSVEscapedParser implements Parser<String> {
 	/** csv char parser */
 	private static final CSVTextDataParser TEXT_DATA = new CSVTextDataParser();
 
+	private int hashCode;
+
 	/**
 	 * constructor
 	 */
 	public CSVEscapedParser() {
-
+		this.hashCode = hashCode();
 	}
 
 	@Override
 	public String parse(MultiMarkableReader in) throws IOException {
 		int c;
 		String ret = null;
-		in.mark(1);
+		in.addMultiMark(hashCode);
 		c = in.read();
 		if (c == '"') {
+			boolean isSuccess = false;
 			StringBuilder sb = new StringBuilder();
 			in.mark(1);
 			while ((c = in.read()) != -1) {
@@ -40,9 +43,8 @@ public class CSVEscapedParser implements Parser<String> {
 					if (c == '"') {
 						sb.append((char)c);
 					} else {
-						// TODO: 最後まで読み進んで駄目だった時にロールバックができない
-						// mark(buffer limit)を設定しないと駄目, markは複数付けれない
 						in.reset();
+						isSuccess = true;
 						break;
 					}
 				} else {
@@ -54,11 +56,15 @@ public class CSVEscapedParser implements Parser<String> {
 				}
 				in.mark(1);
 			}
-			ret = sb.toString();
+			if (isSuccess) {
+				ret = sb.toString();
+			} else {
+				in.resetMultiMark(hashCode);
+			}
 		} else {
-			in.reset();
+			in.resetMultiMark(hashCode);
 		}
-
+		in.clearMultiMark(hashCode);
 		return ret;
 	}
 

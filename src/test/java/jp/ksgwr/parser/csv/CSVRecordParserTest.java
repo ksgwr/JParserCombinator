@@ -24,4 +24,14 @@ public class CSVRecordParserTest {
 
 		assertThat(actual, contains("aa", "b\"b", "cc"));
 	}
+
+	@Test
+	public void parseTest2() throws Exception {
+		Parser<List<String>> parser = new CSVRecordParser();
+
+		StringReader text = new StringReader("\"a\",\"b\"");
+		List<String> actual = parser.parse(text, 3);
+
+		assertThat(actual, contains("a", "b"));
+	}
 }

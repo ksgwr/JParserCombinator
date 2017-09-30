@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.io.StringReader;
 import java.util.Iterator;
 import java.util.List;
 
@@ -41,4 +42,19 @@ public class CSVParserTest {
 
 		// TODO: 異常値テスト
 	}
+
+	@Test
+	public void parseTest3() throws Exception {
+		Parser<Iterator<List<String>>> parser = new CSVParser();
+
+		StringReader text = new StringReader("\"a\",\"b\"");
+		Iterator<List<String>> iterator = parser.parse(text, 3);
+
+		assertTrue(iterator.hasNext());
+		assertThat(iterator.next(), contains("a", "b"));
+		assertFalse(iterator.hasNext());
+
+		// TODO: 異常値テスト
+	}
+
 }

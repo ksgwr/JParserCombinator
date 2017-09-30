@@ -28,4 +28,32 @@ public class CSVEscapedParserTest {
 		assertNull(actual);
 
 	}
+
+	@Test
+	public void parseTest2() throws Exception {
+		Parser<String> parser = new CSVEscapedParser();
+
+		StringReader text;
+		String actual;
+
+		text = new StringReader("\"\"\"a\"");
+
+		actual = parser.parse(text,2);
+		assertEquals("\"a", actual.toString());
+
+	}
+
+	@Test
+	public void parseTest3() throws Exception {
+		Parser<String> parser = new CSVEscapedParser();
+
+		StringReader text;
+		String actual;
+
+		text = new StringReader("\"\"\"a\"");
+
+		actual = parser.parse(text);
+		assertEquals("\"a", actual.toString());
+
+	}
 }

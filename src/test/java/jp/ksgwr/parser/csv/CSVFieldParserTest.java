@@ -23,7 +23,7 @@ public class CSVFieldParserTest {
 
 		text = new StringReader("\"b\"\"c");
 		actual = parser.parse(text);
-		assertEquals("b\"c", actual);
+		assertEquals("\"b\"\"c", actual);
 
 	}
 }

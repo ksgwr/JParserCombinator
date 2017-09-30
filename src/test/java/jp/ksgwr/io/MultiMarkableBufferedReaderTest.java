@@ -165,4 +165,48 @@ public class MultiMarkableBufferedReaderTest {
 
 		reader.close();
 	}
+
+	@Test
+	public void readTest5() throws IOException {
+		StringReader internalReader = new StringReader("abcde");
+		MultiMarkableBufferedReader reader = new MultiMarkableBufferedReader(internalReader, 2);
+		int c;
+
+		reader.addMultiMark(0);
+
+		c = reader.read();
+		assertEquals('a', c);
+
+		reader.mark(1);
+
+		c = reader.read();
+		assertEquals('b', c);
+
+		reader.mark(1);
+
+		c = reader.read();
+		assertEquals('c', c);
+
+		reader.mark(1);
+
+		c = reader.read();
+		assertEquals('d', c);
+
+		reader.reset();
+
+		reader.mark(1);
+
+		c = reader.read();
+		assertEquals('d', c);
+
+		reader.mark(1);
+
+		c = reader.read();
+		assertEquals('e', c);
+
+
+		reader.clearMultiMark(0);
+
+		reader.close();
+	}
 }

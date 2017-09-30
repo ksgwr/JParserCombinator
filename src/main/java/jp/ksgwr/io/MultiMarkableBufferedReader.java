@@ -88,9 +88,9 @@ public class MultiMarkableBufferedReader extends MultiMarkableStringReader {
 
     		StringBuilder sb = new StringBuilder(markDelta + cb.length);
 
-    		if (cb.length == super.next) {
-    			if (minMark < cb.length) {
-    				sb.append(cb, minMark, cb.length);
+    		if (super.length == super.next) {
+    			if (markDelta > 0) {
+    				sb.append(super.str, minMark, super.length);
     			}
     			if (super.mark > UNMARKED) {
     				super.mark = super.mark - minMark;
