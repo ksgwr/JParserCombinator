@@ -46,4 +46,14 @@ public abstract class MultiMarkableReader extends Reader {
 	 * @throws IOException error
 	 */
 	public abstract void resetMultiMark(int hashCode) throws IOException;
+
+	/**
+	 * read As String to MultiMark from CurrentPosition
+	 * @param hashCode uniq key
+	 * @return char array to String
+	 * @throws IOException error
+	 */
+	public String readToMultiMark(int hashCode) throws IOException {
+		throw new UnsupportedOperationException();
+	};
 }

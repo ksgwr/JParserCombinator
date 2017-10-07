@@ -61,7 +61,6 @@ public class LineIterator<T> implements Iterator<T> {
 			}
 			return fields;
 		} catch (Exception e) {
-			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
 	}

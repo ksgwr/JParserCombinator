@@ -22,8 +22,7 @@ public class CSVTextDataParser implements Parser<Character> {
 	@Override
 	public Character parse(MultiMarkableReader in) throws IOException {
 		int c;
-		in.mark(1);
-		c = in.read();
+		c = this.markAndRead(in);
 		switch (c) {
 		case ',':
 		case '\r':

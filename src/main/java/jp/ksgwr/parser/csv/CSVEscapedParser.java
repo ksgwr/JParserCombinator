@@ -15,6 +15,7 @@ public class CSVEscapedParser implements Parser<String> {
 	/** csv char parser */
 	private static final CSVTextDataParser TEXT_DATA = new CSVTextDataParser();
 
+	/** object hashCode */
 	private int hashCode;
 
 	/**
@@ -33,13 +34,11 @@ public class CSVEscapedParser implements Parser<String> {
 		if (c == '"') {
 			boolean isSuccess = false;
 			StringBuilder sb = new StringBuilder();
-			in.mark(1);
-			while ((c = in.read()) != -1) {
+			while ((c = this.markAndRead(in)) != -1) {
 				if (c == ',' || c == '\r' || c == '\n') {
 					sb.append((char)c);
 				} else if (c == '"') {
-					in.mark(1);
-					c = in.read();
+					c = this.markAndRead(in);
 					if (c == '"') {
 						sb.append((char)c);
 					} else {
@@ -54,7 +53,6 @@ public class CSVEscapedParser implements Parser<String> {
 						sb.append(tmpc);
 					}
 				}
-				in.mark(1);
 			}
 			if (isSuccess) {
 				ret = sb.toString();

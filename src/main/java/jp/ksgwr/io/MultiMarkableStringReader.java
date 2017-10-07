@@ -224,4 +224,20 @@ public class MultiMarkableStringReader extends MultiMarkableReader {
 			next = marks.remove(hashCode);
 		}
 	}
+
+	@Override
+	public String readToMultiMark(int hashCode) throws IOException {
+		synchronized (lock) {
+			ensureOpen();
+			Integer mark = marks.get(hashCode);
+			if (mark != null) {
+				if (mark <= next) {
+					return str.substring(mark, next);
+				} else {
+					return str.substring(next, mark);
+				}
+			}
+		}
+		return null;
+	}
 }

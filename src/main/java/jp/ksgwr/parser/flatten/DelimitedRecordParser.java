@@ -35,8 +35,7 @@ public class DelimitedRecordParser implements Parser<List<String>> {
 		List<String> fields = new ArrayList<String>();
 		int c;
 		fields.add(fieldParser.parse(in));
-		in.mark(1);
-		while ((c = in.read()) != -1) {
+		while ((c = this.markAndRead(in)) != -1) {
 			if (c == delimiter) {
 				String s = fieldParser.parse(in);
 				if (s == null) {
@@ -44,7 +43,6 @@ public class DelimitedRecordParser implements Parser<List<String>> {
 				} else {
 					fields.add(s);
 				}
-				in.mark(1);
 			} else {
 				in.reset();
 				break;

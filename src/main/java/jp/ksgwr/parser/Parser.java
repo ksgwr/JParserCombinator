@@ -64,9 +64,19 @@ public interface Parser<T> {
      * @throws IOException read exception
      */
     default int peek(Reader in) throws IOException {
-    	in.mark(1);
-    	int c = in.read();
+    	int c = markAndRead(in);
     	in.reset();
     	return c;
+    }
+
+    /**
+     * mark And read character
+     * @param in input stream
+     * @return head character
+     * @throws IOException read exception
+     */
+    default int markAndRead(Reader in) throws IOException {
+    	in.mark(1);
+    	return in.read();
     }
 }

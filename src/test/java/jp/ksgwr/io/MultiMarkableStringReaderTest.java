@@ -12,6 +12,7 @@ public class MultiMarkableStringReaderTest {
 	public void multiMarkTest() throws IOException {
 		MultiMarkableStringReader reader = new MultiMarkableStringReader("abcd");
 		int c;
+		String str;
 
 		reader.addMultiMark(0);
 		c = reader.read();
@@ -25,7 +26,14 @@ public class MultiMarkableStringReaderTest {
 		c = reader.read();
 		assertEquals('c', c);
 
+		str = reader.readToMultiMark(0);
+		assertEquals("abc", str);
+
 		reader.resetMultiMark(0);
+
+		str = reader.readToMultiMark(2);
+		assertEquals("ab", str);
+
 		c = reader.read();
 		assertEquals('a', c);
 
