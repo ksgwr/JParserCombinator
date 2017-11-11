@@ -20,7 +20,7 @@ public interface Parser<T> {
      * parse stream
      * @param in input stream
      * @return parse result
-     * @throws Exception parser exception
+     * @throws IOException parser exception
      */
     T parse(MultiMarkableReader in) throws IOException;
 
@@ -28,16 +28,29 @@ public interface Parser<T> {
 	 * parse string
 	 * @param s string
 	 * @return parse result
-	 * @throws ParserException parser exception
+	 * @throws IOException parser exception
 	 */
     default T parse(String s) throws IOException {
     	return parse(new MultiMarkableStringReader(s));
     }
 
+    /**
+     * parse stream
+     * @param in input stream
+     * @return parse result
+     * @throws IOException parser exception
+     */
     default T parse(Reader in) throws IOException {
     	return parse(new MultiMarkableBufferedReader(in));
     }
 
+    /**
+     * parse stream
+     * @param in input stream
+     * @param bufferSize buffer size
+     * @return parse result
+     * @throws IOException parser exception
+     */
     default T parse(Reader in, int bufferSize) throws IOException {
     	return parse(new MultiMarkableBufferedReader(in, bufferSize));
     }

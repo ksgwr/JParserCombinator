@@ -33,6 +33,7 @@ public class MultiMarkableBufferedReader extends MultiMarkableStringReader {
 
 	/**
 	 * constructor
+	 * @param in reader
 	 */
 	public MultiMarkableBufferedReader(Reader in) {
 		this(in, DEFAULT_CHAR_BUFFER_SIZE);

@@ -24,7 +24,7 @@ public class MultiMarkableStringReader extends MultiMarkableReader {
 	/** mark offest */
 	protected int mark = -1;
 
-	/** <HashCode, Position> marks hash */
+	/** (HashCode, Position) marks hash */
 	protected TreeMap<Integer, Integer> marks = new TreeMap<Integer, Integer>();
 
 	/**
