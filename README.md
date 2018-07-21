@@ -1,4 +1,4 @@
-# JParserCombinator
+# JParserCombinator [![Build Status](https://travis-ci.org/ksgwr/JParserCombinator.svg?branch=master)](https://travis-ci.org/ksgwr/JParserCombinator)
 
 ## 概要
 
