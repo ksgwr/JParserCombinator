@@ -7,6 +7,9 @@ ParserCombinatorとは単純なParserを組み合わせて複雑なParserを構�
 
 ## インストール
 
+[Version情報](https://github.com/ksgwr/JParserCombinator/releases) ([指定可能Version](https://github.com/ksgwr/mvn-repo/tree/gh-pages/jp/ksgwr/JParserCombinator))
+
+
 pom.xmlに下記を設定します。
 
 ```
@@ -21,7 +24,7 @@ pom.xmlに下記を設定します。
   <dependency>
     <groupId>jp.ksgwr</groupId>
     <artifactId>JParserCombinator</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
   </dependency>
 </dependencies>
 ```
