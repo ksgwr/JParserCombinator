@@ -5,8 +5,8 @@ deploy:
   provider: script
   script: "./mvnw deploy"
   skip_cleanup: true
-  #on:
-  #  tags: true
+  on:
+    tags: true
 env:
   global:
     secure: XSgW6EfW72XG2Xh61gJqE7yqf3XymLnR4oDF3jeoMegsw7v+LwUwZTw2oN+Z5Q4kpBgXMLvgkLwWREwzcqkKUx80A4ZQpMnSCwvAAXlZrw65MfrKbFAJKNB5HOke8Xxqi7fI4u98sabzeBuoo45d12IRUZ6GoyNZ/fHIVupt3rTjIgAH+Xk7umtdSSb5pwIEqWJl4DNYCk456JSPhwhbQ3iMAiJPLs72x4glM6RFisZwitv5/GotexFSk1TvGqrpB+G9CAJmkz9h5rz4acOue9ZBiYsOYQejnCsWpgjB0qsenEA/7Ts6tVKmv5bsZWwvW7lpgxQTiceBJ/UDA7d/JY0n/6OQ7bqD8AzC/oaz3AfHNuCn6J02bY8gW03CXMjpG8ioXRRYmVmTjM3qMErXb7vX4bufDUY6E6ZxwdjiZC67ZW2O5fFDMEzphXykfvs6QSxfxsVulF3/xZbgQExbb/G6xCP3Xfbnijp1J3LVHDrh2ulkZH6XwoSIiO18wjCf1Fbo9ULM7mMD0GpSFu3AClF4skax2vBMm8dd7a0lQ0YqU3QF2rpzUO+9mcrbJgB0NwB8jHhq2z7tOCGBlBhFsaUAiueNhGukUQ7KmzLxKhh2bjqDv/rNm4J0bZP/xmotP5JM5QoedG+w26zGgfPTEL6ZChbu7Qk/mY8ScdpVS9E=

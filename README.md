@@ -24,7 +24,7 @@ pom.xmlに下記を設定します。
   <dependency>
     <groupId>jp.ksgwr</groupId>
     <artifactId>JParserCombinator</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
   </dependency>
 </dependencies>
 ```
